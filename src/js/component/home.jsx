@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 export function Home() {
-  const [segundos, setSegundos] = useState("0");
+  const [segundos, setSegundos] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
