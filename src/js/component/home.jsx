@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+export function Home() {
+  const [segundos, setSegundos] = useState("0");
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const fechaActual = new Date();
+      let ss = fechaActual.getSeconds() % 7; 
+  
+      setSegundos(ss);
+    }, 1000);
+  
+    return () => clearInterval(interval);
+  }, []);
+  
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
-
-export default Home;
+  return (
+    <div className="contenedor-padre">
+      <div className="contador">
+        <div className="icono">
+          <FontAwesomeIcon icon={faClock} />
+        </div>
+        <div className="tiempo">
+          <span id="horas-primero">0</span>
+          <span id="horas-segundo">0</span>
+          <span id="minutos-primero">0</span>
+          <span id="minutos-segundo">0</span>
+          <span id="segundos-primero">0</span>
+          <span className="digito" id="segundos-segundo">{segundos}</span>
+        </div>
+      </div>
+    </div>
+  );
+}

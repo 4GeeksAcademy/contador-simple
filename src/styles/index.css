@@ -1,12 +1,59 @@
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
 
-/* 
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.contenedor-padre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background: black;
+    margin-top: 20px;
+    padding: 70px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
 
-*/
+.contador {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 20px;
+   
+}
+
+
+.icono {
+    font-size: 30px;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.tiempo {
+    font-size: 30px;
+   
+}
+
+#horas-primero,
+#horas-segundo,
+#minutos-primero,
+#minutos-segundo,
+#segundos-primero
+{
+    padding: 30px;
+    border-radius: 5px;
+    font-size: 5vh;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 5px;
+    
+}
+
+.digito {
+
+    padding: 30px;
+    border-radius: 5px;
+    font-size: 5vh;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 5px;
+}
