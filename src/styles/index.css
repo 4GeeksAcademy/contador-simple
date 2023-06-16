@@ -35,11 +35,11 @@
    
 }
 
-#horas-primero,
-#horas-segundo,
-#minutos-primero,
-#minutos-segundo,
-#segundos-primero
+.billones,
+.millones,
+.millares,
+.centenas,
+.decenas
 {
     padding: 30px;
     border-radius: 5px;

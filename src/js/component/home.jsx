@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
-export function Home() {
-  const [segundos, setSegundos] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const fechaActual = new Date();
-      let ss = fechaActual.getSeconds() % 7; 
-  
-      setSegundos(ss);
-    }, 1000);
-  
+
+export function Home() {
+
+  const [time,setTime] = useState(0);
+  const [running,setRunning] = useState(false);
+  const [timeString,setTimeString] = useState([]);
+console.log("Al principio de ejecutar la lógia :", time, running, timeString)
+  useEffect(() =>{
+
+    let interval;
+    if(running){
+      interval = setInterval(() =>{
+        setTime((counter) => counter + 1)
+      }, 1000)
+
+    }else if(!running){
+      clearInterval(interval)
+    }
     return () => clearInterval(interval);
-  }, []);
+  },[running])
+
+  useEffect(() =>{
+   setRunning(true)
+  },[])
+
+  useEffect(() =>{
+   setTimeString(time.toString().split('').reverse());
+  },[time])
   
 
   return (
@@ -23,12 +39,12 @@ export function Home() {
           <FontAwesomeIcon icon={faClock} />
         </div>
         <div className="tiempo">
-          <span id="horas-primero">0</span>
-          <span id="horas-segundo">0</span>
-          <span id="minutos-primero">0</span>
-          <span id="minutos-segundo">0</span>
-          <span id="segundos-primero">0</span>
-          <span className="digito" id="segundos-segundo">{segundos}</span>
+          <span className="billones">{timeString[5]}</span>
+          <span className="millones">{timeString[4]}</span>
+          <span className="millares">{timeString[3]}</span>
+          <span className="centenas">{timeString[2]}</span>
+          <span className="decenas">{timeString[1]}</span>
+          <span className="digito unidades-unidades">{timeString[0]}</span>
         </div>
       </div>
     </div>
