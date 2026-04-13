@@ -1,18 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Home from './components/Home'
 
-//Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+let timer = 0
 
-// index.css'
-import '../styles/index.css'
+const root = ReactDOM.createRoot(document.getElementById('root'))
 
-// components
-import Home from './components/Home';
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+setInterval(() => {
+  root.render(
+    <React.StrictMode>
+      <Home seconds={timer} />
+    </React.StrictMode>
+  )
+  timer++
+}, 1000)
